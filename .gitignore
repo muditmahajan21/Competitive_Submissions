@@ -4,3 +4,9 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+Leetcode/Arrays/.vscode/settings.json
+Templates/.idea/.gitignore
+Templates/.idea/Templates.iml
+Templates/.idea/misc.xml
+Templates/.idea/modules.xml
+Templates/.idea/vcs.xml
