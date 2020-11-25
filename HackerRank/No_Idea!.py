@@ -1,0 +1,6 @@
+temp = input()
+arr = input().split()
+like = set(input().split())
+dislike = set(input().split())
+ans = sum((i in like) - (i in dislike) for i in arr) 
+print(ans)
