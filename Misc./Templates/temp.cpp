@@ -9,11 +9,11 @@ int main()
     cin.tie(NULL);
     ll test;
     cin >> test;
-    for(ll t = 0; t < test; t++)
+    while(test--)
     {
-        ll i, j, k, n, temp, count = 0, ans = 0;
-        ll arr[n];
+        ll i, j, k, n, temp, count = 0, ans = 0, sum = 0;
         cin >> n;
+        ll arr[n];
         
         for(i = 0; i < n; i++)
         {
@@ -21,7 +21,6 @@ int main()
         }
         
         
-        cout << "Case #" << t + 1 << ": " << ans << endl;
     }
 
 return 0;
