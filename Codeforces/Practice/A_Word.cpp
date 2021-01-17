@@ -33,7 +33,7 @@ int main()
     {
         transform(s.begin(), s.end(), s.begin(), ::tolower);
     }
-    cout << s << endl;
+    cout << s << endl;  
     
 return 0;
 }
