@@ -1,48 +1,46 @@
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
 #define endl "\n"
 
-vector<string> generate_gray(int n)
-{
-        if(n <= 0)
-        {
-                return {"0"};
-        }
-        else if(n == 1)
-        {
-                return {"0", "1"};
-        }
-
-        vector<string> rec_ans = generate_gray(n - 1);
-        vector<string> main_ans;
-
-        string s;
-
-        for(unsigned int i = 0; i < rec_ans.size() ; i++)
-        {
-                s = rec_ans[i];
-                main_ans.push_back("0" + s);
-        }
-
-        for(unsigned int i = 0; i < rec_ans.size(); i++)
-        {
-                s = rec_ans[i];
-                main_ans.push_back("1" + s);
-        }
-        return main_ans;
-}
-
 void generate_gray_codes(int n)
 {
-        vector<string> result;
-        result = generate_gray(n);
-        
-        sort(result.begin(), result.end(), greater<string>());
-
-        for(unsigned int i = 0; i < result.size(); i++)
+        int arr[1 << n + 1];
+        memset(arr, 0, sizeof(arr));
+        int i;
+        for(i = 0; i < n; i++)
         {
-                cout << result[i] << endl;
+                cout << 0;
+        }
+        cout << endl;
+
+        arr[0] = 1;
+        int x = 0;
+
+        for(i = 0;i < 1 << n; i++)
+        {
+                for(int j = 0; j < n; j++)
+                {
+                        int y = x ^ (1 << j);
+    		            if (!arr[y]) 
+                        {
+    			                x = y;
+    			                arr[y] = 1;
+				                string s;
+				                while (y) 
+                                {
+					                    if (y&1) s += '1';
+					                    else s += '0';
+					                    y >>= 1;
+				                }
+				        reverse(s.begin(), s.end());
+				        for (int i = 0; i < n - s.size(); i++)
+					            cout<<0;
+				        cout<<s<<endl;
+				        break;             
+                        }
+                }
+                
         }
 }
 
