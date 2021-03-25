@@ -44,7 +44,7 @@ int main()
         for(i = 0; i < a + b - 1; i++)
         {
             if(c[i] % 2)
-            {
+            {   
                 ans ^= (i + 2 + k);
             }
         }

@@ -2,14 +2,13 @@
 #define ll long long int
 using namespace std;
 
-
 int main()
 {   
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll test;
     cin >> test;
-    //ll n = squares.size();
+    
     ll t;
     vector<ll> squares;
 
@@ -36,9 +35,9 @@ int main()
         number += 2; 
     } 
 
-    //perfectSquares(1, 1000000);
+    
     ll n = squares.size();
-    //cout << n << endl;
+
     while(test--)
     {
        
