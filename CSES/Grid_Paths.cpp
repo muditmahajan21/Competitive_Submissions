@@ -1,22 +1,66 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long int
-#define endl "\n"
-const ll MOD = 1e9 + 7;
+const int MOD = 1e9 + 7;
+const int max_size = 1010;
+
+int dp[max_size][max_size];
+int obstacles[max_size][max_size];
 
 int main()
 {
-    ll i, j, n;
+    int n;
     cin >> n;
-    vector<string> in;
+
+    int i, j;
     string s;
 
-    for(i = 0; i < n; i++)
+    for(i = 1; i <= n; i++)
     {
         cin >> s;
-        in.push_back(s);
+
+        for(j = 1; j <= n; j++)
+        {
+            if(s[j - 1] == '*')
+            {
+                obstacles[i][j] = 1;
+            }
+            else
+            {
+                obstacles[i][j] = 0;
+            }
+        }
     }
 
-    vector<vector<ll>> dp(n + 1, vector<ll>());
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= n; j++)
+        {
+            if(i == 1 and j == 1)
+            {
+                if(obstacles[i][j])
+                {
+                    dp[i][j] = 0;
+                }
+                else
+                {
+                    dp[i][j] = 1;
+                }
+            }
+            else
+            {
+                if(obstacles[i][j])
+                {
+                    dp[i][j] = 0;
+                }
+                else
+                {
+                    dp[i][j] = (dp[i - 1][j] + dp[i][j - 1]) % MOD;
+                }
+            }
+        }
+    }
 
+    cout << dp[n][n] << endl;
+
+return 0;
 }
