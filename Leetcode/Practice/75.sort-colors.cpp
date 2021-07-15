@@ -8,21 +8,34 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int i, j;
-        vector<int> c(3, 0);
-
-        for(i = 0; i < nums.size(); i++)
+        int count0 = 0, count1 = 0, count2 = 0;
+        int n = nums.size();
+        for(auto e: nums)
         {
-            c[nums[i]]++;
+            if(e == 0)count0++;
+            else if(e == 1)count1++;
+            else count2++;
         }
-
-        nums.clear();
-        for(i = 0; i < 3; i++)
+        int i = 0, j = 0;
+        
+        while(i < count0){
+            nums[i] = 0;
+            i++;
+            j++;
+        }
+        i = 0;
+        while(i < count1  and j < n)
         {
-            for(j = 0; j < c[i]; j++)
-            {
-                nums.push_back(i);
-            }
+            nums[j] = 1;
+            i++;
+            j++;
+        }
+        i = 0;
+        while(i < count2 and j < n)
+        {
+            nums[j] = 2;
+            i++;
+            j++;
         }
     }
 };
