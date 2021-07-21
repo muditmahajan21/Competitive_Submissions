@@ -6,21 +6,24 @@
 
 // @lc code=start
 
-#include<bits/stdc++.h>
-using namespace std;
-
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int count = 0, i, n = nums.size();
-        for(i = 0; i < n; i++)
-        {
-            if( !i || nums[i] != nums[count - 1])
-            {
-                nums[count++] = nums[i];
-            }
-        }
-        return count;
+        int n, j, i, ans = 0;
+        n = nums.size();
+
+        i = 0; j = 0;
+
+       for(i = 0; i < n; i++)
+       {
+           while(i != n - 1 and nums[i] == nums[i + 1])
+           {
+               i++;
+           }
+           nums[j] = nums[i];
+           j++;
+       }
+       return j;
     }
 };
 // @lc code=end

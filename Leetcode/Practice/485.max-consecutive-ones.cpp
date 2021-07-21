@@ -5,18 +5,16 @@
  */
 
 // @lc code=start
-#include<bits/stdc++.h>
-using namespace std;
 
 class Solution {
 public:
     int findMaxConsecutiveOnes(vector<int>& nums) {
-        int temp = 0, i, n = nums.size(), prev = 0;
+        int temp = 0, i, n = nums.size(), ans = 0;
 
 
         for(i = 0; i < n; i++)
         {
-            if(nums[i] == 1)
+            if(nums[i] == 1)    
             {
                 temp++;
             }
@@ -24,13 +22,10 @@ public:
             {
                 temp = 0;
             }
-            if(temp > prev)
-            {
-                prev = temp;
-            }
+            ans = max(ans, temp);
         }
 
-        return prev;
+        return ans;
     }
 };
 // @lc code=end
