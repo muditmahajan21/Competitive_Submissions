@@ -5,27 +5,20 @@
  */
 
 // @lc code=start
-#include<bits/stdc++.h>
-using namespace std;
-
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> res;
-        int i,j, n = nums.size();
-
-        for(i = 0; i < n; i++)
+        unordered_map<int, int> mp;
+        for(int i = 0; i < nums.size(); i++)
         {
-            for(j = i + 1; j < n; j++)
+            if(mp.count(target - nums[i]))
             {
-                if(nums[i] + nums[j] == target)
-                {
-                    res.push_back(i);
-                    res.push_back(j);
-                }
+                return {mp[target - nums[i]], i};
             }
+            mp[nums[i]] = i;
         }
-        return res;        
+        
+        return {-1, -1};
     }
 };
 // @lc code=end
